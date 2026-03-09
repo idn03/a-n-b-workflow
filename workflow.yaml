@@ -1,0 +1,22 @@
+name: auto-test-fix-workflow
+maxRetry: 3
+targetDir: examples/sample-app
+
+steps:
+  - name: scan_code_changes
+    description: Detect changed or all TypeScript source files in target directory.
+
+  - name: generate_or_update_unit_tests
+    description: Ensure every scanned module has a corresponding test file.
+
+  - name: run_tests
+    description: Run vitest on the target directory and capture results.
+
+  - name: parse_failures
+    description: Parse test output to identify failing tests and errors.
+
+  - name: apply_simple_fixes
+    description: Apply automated fixes for common issues.
+
+  - name: rerun_and_report
+    description: Rerun tests and produce a final report.
