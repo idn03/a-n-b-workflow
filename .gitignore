@@ -2,3 +2,9 @@ node_modules/
 dist/
 logs/
 *.tsbuildinfo
+src/
+tests/
+.derived/
+package.json
+package-lock.json
+tsconfig.json
