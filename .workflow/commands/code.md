@@ -4,9 +4,9 @@
 Generate source code, tests, and project configuration from derived specs.
 
 ## Input
-- `derived-spec/architecture.md`
-- `derived-spec/implementation.md`
-- `derived-spec/tests.md`
+- `.derived/architecture.md`
+- `.derived/implementation.md`
+- `.derived/tests.md`
 
 ## Output
 - `src/` — TypeScript source files matching the architecture
@@ -21,6 +21,11 @@ Generate source code, tests, and project configuration from derived specs.
 5. Run `npm install`
 6. Run tests to verify generation
 
+## Profile Overrides
+- **default** — Full behavior as described above
+- **quick** — Skip step 6 (test verification)
+- **ci** — Fail immediately if any generated file has lint errors; no auto-fix
+
 ## Errors
-- Fail if `derived-spec/` does not exist (run `workflow init` first)
+- Fail if `.derived/` does not exist (run `workflow init` first)
 - Warn if generated tests fail (suggest `workflow debug`)

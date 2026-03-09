@@ -15,7 +15,9 @@ This repo is developed using a **spec-driven workflow**. Specs come first, code 
 ├── spec.md                       # DevCheck CLI specification
 ├── .workflow/
 │   ├── spec.md                   # Workflow engine specification
-│   └── commands/                 # Command specs (init, code, feature, debug)
+│   ├── profiles.md               # Profile definitions (default, quick, ci)
+│   ├── commands/                 # Command specs (init, code, feature, debug)
+│   └── profiles/                 # Custom profile definitions
 ├── src/                          # Generated (after workflow code)
 ├── tests/                        # Generated (after workflow code)
 └── package.json                  # Generated (after workflow code)
@@ -43,5 +45,15 @@ error analysis → src/ fix → tests pass
 | `workflow code`    | Generate source code, tests, and config from derived specs |
 | `workflow feature` | Add features via pipeline: spec → derive → code → test  |
 | `workflow debug`   | Analyze errors, apply fixes, and re-run tests            |
+
+All commands support `--profile <name>`. See `.workflow/profiles.md` for details.
+
+## Profiles
+
+| Profile   | Use case                  | Auto-fix | Tests | Retries |
+|-----------|---------------------------|----------|-------|---------|
+| `default` | Local development         | yes      | yes   | 3       |
+| `quick`   | Fast iteration            | yes      | no    | 1       |
+| `ci`      | CI/CD pipelines           | no       | yes   | 0       |
 
 See `.workflow/commands/` for detailed command specifications.

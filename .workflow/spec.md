@@ -15,6 +15,16 @@ A spec-driven development tool that transforms specifications into working code 
 - `workflow feature` — Add features via pipeline: spec → derive → code → test
 - `workflow debug` — Analyze errors, apply fixes, and re-run tests
 
+All commands support `--profile <name>` to customize behavior. See `profiles.md` for details.
+
+## Profiles
+Profiles adjust workflow behavior for different contexts:
+- **default** — Full pipeline, retries enabled, auto-fix on
+- **quick** — Fast iteration, skip test verification, minimal output
+- **ci** — Strict mode, no auto-fix, fail fast, verbose logging
+
+Custom profiles can be added in `.workflow/profiles/`.
+
 ## Pipeline
 ```
 spec.md

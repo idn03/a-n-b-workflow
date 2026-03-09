@@ -15,6 +15,11 @@ Analyze test failures, apply fixes, and re-run tests until they pass.
 6. Repeat up to `maxRetry` times (default: 3)
 7. Report final results
 
+## Profile Overrides
+- **default** — Full behavior with retries (maxRetry: 3)
+- **quick** — Single attempt, no retries (maxRetry: 1)
+- **ci** — No auto-fix; report failures and exit with code 1
+
 ## Output
 - Fixed source or test files
 - A summary report of what was fixed
